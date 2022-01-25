@@ -1,0 +1,266 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+const  char *n[8],*m[8];
+int c[] ={0,0,0,0,0,0,0,0};
+int v[] ={0,0,0,0,0,0,0,0};
+int p[8],i,o[8];
+
+void vshow()
+{
+
+printf("Veg-pizza offered\n");
+n[1] = "CHESSY TOMATO";
+p[1] = 99.00;
+n[2] = "CORN AND CHEESE";
+p[2] = 99.00;
+n[3] = "CHESSY ONION";
+p[3] = 99.00;
+n[4] = "VEGGIE LOADED";
+p[4] = 120.00;
+n[5] = "CLASS MARGHERITA";
+p[5] = 120.00;
+n[6] = "PANEER TIKKA";
+p[6] = 219.00;
+n[7] = "BBQ PANEER";
+p[7] = 219.00;
+
+    for(i=1;i<=7;i++)
+    {
+        printf("\n%d. %s\n", i, n[i]);
+        printf("    RS %d\n", p[i]);
+        
+    }
+
+}
+void vselect()
+{
+    int ch,quantity;
+    char pro;//pro1;
+    
+    pro = 'y';
+    while(pro == 'y' || pro == 'Y')
+    {
+        printf("\nenter the choice: ");
+        scanf("%d",&ch);
+        
+        switch(ch)
+        {
+            case 1: printf("You have Selected : %s",n[1]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity);
+            c[1] = c[1] + quantity;
+            break;
+            case 2:printf("You have Selected : %s",n[2]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            c[2] = c[2] + quantity;
+            break;
+            case 3:printf("You have Selected : %s",n[3]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            c[3] = c[3] + quantity;
+            break;
+            case 4:printf("You have Selected : %s",n[4]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            c[4] = c[4] + quantity;
+            break;
+            case 5:printf("You have Selected : %s",n[5]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            c[5] = c[5] + quantity;
+            break;
+            case 6:printf("You have Selected : %s",n[6]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            c[6] = c[6] + quantity;
+            break;
+            case 7:printf("You have Selected : %s",n[7]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            c[7] = c[7] + quantity;
+            break;
+            default:printf("invalid input\n");
+            break;
+            
+        }
+        printf("\nDo you want to order more (y/n):");
+        scanf("\n%c", &pro);
+        
+    }
+}
+void nshow()
+{
+
+printf("NonVeg-pizza offered\n");
+m[1] = "CREAMY CHICKEN ";
+o[1] = 149.00;
+m[2] = "CHICKEN TIKKA ";
+o[2] = 149.00;
+m[3] = "CHICKEN MUSHROOMS";
+o[3] = 199.00;
+m[4] = " CHICKEN SAUSAGES";
+o[4] = 239.00;
+m[5] = "BBQ SAUSAGES";
+o[5] = 239.00;
+m[6] = "CHICKEN OVERLOADED";
+o[6] = 269.00;
+m[7] = "BBQ PRAWN";
+o[7] = 279.00;
+
+    for(i=1;i<=7;i++)
+    {
+         printf("\n%d. %s\n", i, m[i]);
+        printf("    RS %d\n", o[i]);
+    }
+
+}
+void nselect()
+{
+    int ch,quantity;
+    char pro;//pro1;
+    
+    pro = 'y';
+    while(pro == 'y' || pro == 'Y')
+    {
+        printf("\nenter the item choice: ");
+        scanf("%d",&ch);
+        
+        switch(ch)
+        {
+            case 1: printf("You have Selected : %s",m[1]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity);
+            v[1] = v[1] + quantity;
+            break;
+            case 2:printf("You have Selected : %s",m[2]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            v[2] = v[2] + quantity;
+            break;
+            case 3:printf("You have Selected : %s",m[3]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            v[3] = v[3] + quantity;
+            break;
+            case 4:printf("You have Selected : %s",m[4]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            v[4] = v[4] + quantity;
+            break;
+            case 5:printf("You have Selected : %s",m[5]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            v[5] = v[5] + quantity;
+            break;
+            case 6:printf("You have Selected : %s",m[6]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            v[6] = v[6] + quantity;
+            break;
+            case 7:printf("You have Selected : %s",m[7]);
+            printf("\nenter the quantity: ");
+            scanf("%d",&quantity); 
+            v[7] = v[7] + quantity;
+            break;
+            default:printf("invalid input\n");
+            break;
+            
+        }
+        printf("\nDo you want to order more (y/n):");
+        scanf("\n%c", &pro);
+        
+    }
+}
+
+
+void cal()
+{
+       float total = 0, tax, due;
+       printf("\n---------------------------VVCE PIZZA CORNER------------------------------\n" );
+       printf("\n Product\t                Quantity \t              Amount(Rs.)\n");
+       for ( i = 1; i <= 7; i++)
+       {
+              if (c[i] > 0)
+              {
+                      printf(" %-30s %d * %-30d %-30d\n",n[i],p[i],c[i],c[i]*p[i]);
+                     total = total + (p[i]*c[i]);
+              }
+             
+
+       }
+       
+       for ( i = 1; i <= 7; i++)
+       {
+          if (v[i] > 0)
+          {
+                       printf(" %-30s %d * %-30d %-30d\n",m[i],o[i],v[i],v[i]*o[i]);
+                       total = total + (v[i]*o[i]);
+          }
+       }
+       tax = total*0.17;
+       due = total + tax; 
+       printf("              \n\nTax : %0.2f \n",tax);
+       printf("\n-----------------------------------------------------------------------");
+       printf("\nTotal Amount    %0.2f RS ", due);
+       printf("\n-----------------------------------------------------------------------" );
+       exit(0);
+
+}
+
+int main()
+{
+    int mc;
+    
+    
+    for(;;)
+    {
+        printf("-----------------VVCE PIZZA CORNER------------------\n\n");
+        printf("1.Veg-pizza     2.Nonveg-pizza       3.Bill     4.Quit\n");
+        printf("\nEnter the Service choice: ");
+        scanf("%d",&mc);
+    switch(mc)
+    {
+        case 1:vshow();
+               vselect();
+               system("clear");
+               break;
+        case 2:nshow();
+               nselect();
+               system("clear");
+               break;
+        case 3:system("clear");
+               cal();
+               break;
+        case 4: exit(0);
+        default: printf("\nInvalid choice");
+                 system("clear");
+                 break;
+    }
+    
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
